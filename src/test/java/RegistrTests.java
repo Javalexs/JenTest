@@ -9,20 +9,21 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrTests {
 
-//    @BeforeAll
-//    static void beforeAll(){
-//        Configuration.baseUrl = "https://demoqa.com";
-//        Configuration.browserSize = "1920x1080";
-////        Configuration.holdBrowserOpen = true;
+    @BeforeAll
+    static void beforeAll(){
+        open("https://demoqa.com/automation-practice-form");
+        Configuration.browserSize = "1920x1080";
+        Configuration.holdBrowserOpen = true;
 //
 //
-//    }
+    }
     @Test
     void successfulRegistrationTest(){
         String userName = "Alex";
         String lastName = "Fadeev";
 
-        open("https://demoqa.com/automation-practice-form");
+
+
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
