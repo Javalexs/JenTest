@@ -21,7 +21,7 @@ tasks.withType(Test){
          useJUnitPlatform()
     testLogging{
         lifecycle{
-            events "standart", "skipped", "failed", "standard_error", "standard_out"
+            events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
     }
