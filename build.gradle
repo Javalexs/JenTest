@@ -13,10 +13,18 @@ dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter:5.9.1',
 
-            'com.codeborne:selenide:6.11.0'
+            'com.codeborne:selenide:6.11.0',
+            'org.slf4j:slf4j-simple:1.7.32'
     )
 }
+tasks.withType(Test){
+         useJUnitPlatform()
+    testLogging{
+        lifecycle{
+            events "standart", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 
-test {
-    useJUnitPlatform()
+
 }
