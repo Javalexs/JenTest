@@ -1,6 +1,7 @@
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+package prog;
+
 import org.junit.jupiter.api.Test;
+import prog.TestBase;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
@@ -8,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class RegistrTests extends TestBase{
+public class RegistrTests extends TestBase {
     @Test
     void successfulRegistrationTest(){
         step("Открытие анкеты регистрации", () -> {
