@@ -7,24 +7,13 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrTests {
-
-
-//    @BeforeAll
-//    static void beforeAll(){
-//        open("https://demoqa.com/automation-practice-form");
-//        Configuration.browserSize = "1920x1080";
-////        Configuration.holdBrowserOpen = true;
-////
-////
-//    }
+public class RegistrTests extends TestBase{
     @Test
     void successfulRegistrationTest(){
         String userName = "Alex";
         String lastName = "Fadeev";
-        open("https://demoqa.com/automation-practice-form");
 
-
+        open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
