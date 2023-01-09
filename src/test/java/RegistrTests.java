@@ -6,20 +6,20 @@ import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static io.qameta.allure.Allure.step;
 
 public class RegistrTests extends TestBase{
     @Test
     void successfulRegistrationTest(){
-        String userName = "Alex";
-        String lastName = "Fadeev";
-
-        open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
-
-        $("#firstName").setValue(userName);
-        $("#lastName").setValue(lastName);
+        step("Открытие анкеты регистрации", () -> {
+            open("/automation-practice-form");
+            $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+            executeJavaScript("$('#fixedban').remove()");
+            executeJavaScript("$('footer').remove()");
+        });
+        step("Заполнение анкеты", () -> {
+        $("#firstName").setValue("Alex");
+        $("#lastName").setValue("Fadeev");
         $("#userEmail").setValue("Alexs@mail.ru");
 //
         $("#genterWrapper").$(byText("Male")).click();
@@ -44,10 +44,12 @@ public class RegistrTests extends TestBase{
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Gurgaon")).click();
         $("#submit").click();
-
+        });
+        step("Проверка вводимых данных", () -> {
         $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text(userName), text(userName), text("Alexs@mail.ru"), text("8926012345"));
+        $(".table-responsive").shouldHave(text("Alex"), text("Fadeev"), text("Alexs@mail.ru"), text("8926012345"));
         $("#closeLargeModal").click();
+        });
     }
 }
