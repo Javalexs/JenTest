@@ -42,7 +42,7 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId() + ".mp4";
+        String videoUrl = System.getProperty("remoteUrl", "https://user1:1234@selenoid.autotests.cloud") + sessionId() + ".mp4";
 
         try{
             return new URL(videoUrl);
