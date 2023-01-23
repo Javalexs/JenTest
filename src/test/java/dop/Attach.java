@@ -1,6 +1,5 @@
 package dop;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -43,7 +42,7 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = Configuration.remote + sessionId() + ".mp4";
+        String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId() + ".mp4";
 
         try{
             return new URL(videoUrl);
