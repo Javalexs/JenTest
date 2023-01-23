@@ -37,11 +37,9 @@ dependencies {
             'org.slf4j:slf4j-simple:2.0.6'
     )
 }
-test {
-    useJUnitPlatform()
-    systemProperties(System.getProperties())
-}
+
 tasks.withType(Test){
+    systemProperties(System.getProperties())
     useJUnitPlatform()
     testLogging{
         lifecycle{
