@@ -1,0 +1,8 @@
+5616458829:AAFQqkVmOiiacWp8BIJ-g6jzZRFlhzq9LOw
+-1001895353767
+
+https://api.telegram.org/bot5616458829:AAFQqkVmOiiacWp8BIJ-g6jzZRFlhzq9LOw/getUpdates
+
+java -DconfigFile=notifications/telegram.json -jar notifications/allure-notifications-4.2.1.jar
+
+curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "-1001895353767", "text": "HELLO QA.GURU", "disable_notification": true}' https://api.telegram.org/bot5616458829:AAFQqkVmOiiacWp8BIJ-g6jzZRFlhzq9LOw/sendMessage
