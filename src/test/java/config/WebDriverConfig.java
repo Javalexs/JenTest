@@ -1,16 +1,10 @@
 package config;
-
-import com.codeborne.selenide.Configuration;
 import org.aeonbits.owner.Config;
-import org.aeonbits.owner.ConfigFactory;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
 @Config.Sources({
         "classpath:${env}.properties"
 })
 
 public interface WebDriverConfig extends Config {
-
     @Key("baseUrl")
     @DefaultValue("https://demoqa.com")
     String getBaseUrl();
@@ -32,9 +26,5 @@ public interface WebDriverConfig extends Config {
     Boolean isRemote();
 
     @Key("remoteUrl")
-//    @DefaultValue("https://user1:1234@selenoid.autotests.cloud/wd/hub")
     String getRemoteUrl();
-
-
-
 }
